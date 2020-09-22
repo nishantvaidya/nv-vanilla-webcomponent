@@ -2,8 +2,19 @@ class NvStarRating extends HTMLElement {
   constructor(){
     super();
     this._root = this.attachShadow({mode: "open"});
-    this.stop = null;
-    this._bottom = null;
+    this._$top = null;
+    this._$bottom = null;
+    this._disabled = false;
+    this._value = 0;
+  }
+
+  set value(value){
+    if(this._value === value) return;
+    this._value = value;
+    this._render()
+  }
+  get value(){
+    this._value;
   }
 
   connectedCallback(){
@@ -78,8 +89,34 @@ class NvStarRating extends HTMLElement {
          <span data-value="1">*</span>
        </div>
      </div>
-    `
+    `;
+    this._disabled = (this.getAttribute("disabled") !== null);
+    this._$top = this._root.querySelector('.top');
+
   }
+
+  _render(){
+    if(this._$top !== null){
+      this._$top.style.width = ((this._value * 10) *2 ) + "%";
+    }
+  }
+
+  static get observedAttributes(){
+    return ["disabled"];
+
+  }
+
+  attributeChangedCallback(name, oldValue, newValue){
+    if(oldValue !== newValue){
+       switch(name){
+         case "disabled": 
+           this._disabled = (newValue !== null);
+           break;
+       }
+    }
+
+  }
+
 
 }
 
