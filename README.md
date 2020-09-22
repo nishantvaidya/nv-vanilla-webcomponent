@@ -1,3 +1,8 @@
 # nv-vanilla-webcomponent
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/nv-vanilla-webcomponent)
+
+## webComponent.
+### Custom Element.
+### Shadow Element.
+### Html template.
+### Html Import.
