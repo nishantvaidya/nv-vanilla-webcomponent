@@ -92,6 +92,17 @@ class NvStarRating extends HTMLElement {
     `;
     this._disabled = (this.getAttribute("disabled") !== null);
     this._$top = this._root.querySelector('.top');
+    this._$bottom = this._root.querySelector('.bottom');
+    this._$bottom.addEventListener('click', event => {
+     if(this._disabled !== true && event.target.dataset.value != 'undefined'){
+     if(this._value !== event.target.dataset.value){
+       this.dispatchEvent(new Event("change"));
+       this._value = event.target.dataset.value;
+     }
+       
+     }
+
+    });
 
   }
 
