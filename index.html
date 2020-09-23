@@ -6,18 +6,50 @@
     <title>Vanilla WebComponent</title>
     <!--<script src="./nv-star-rating.js"></script> -->
     <script src="./nv-slide-menu.js"></script>
+    
     <style>
-    html, body {
-      font-size: 1.5em
-    }
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+        .controls {
+            width: 400px;
+            margin: auto;
+            background-color: #F1F1F1;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 1px 1px rgba(51, 51, 51, 0.50);
+        }
+        .controls .btn {
+            font-family: inherit;
+            font-size: 100%;
+            padding: .5em 1em;
+            color: #CCC;
+            border: 1px solid #000;
+            background-color: #333;
+            text-decoration: none;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
     </style>
+    
 	</head>
   <body>
 <!--<p> Star Rating: <nv-star-rating id="sr" value="3" ></nv-star-rating> </p> -->
-<p> Slide Menu: <nv-slide-menu id="menu"></nv-slide-menu> </p>
+  <nv-slide-menu id="menu">
+    <h2 slot="title"> Nav Menu</h2>
+    <a href="#">One </a>
+    <a href="#">Two </a>
+    <a href="#">Three </a>  
+  </nv-slide-menu>
+
 <div class="controls">
-<button class="btn" data-action="open"> Open Menu</button>
-<button class="btn" data-action="close"> Close Menu</button>
+  <button class="btn" data-action="open"> Open Menu</button>
+  <button class="btn" data-action="close"> Close Menu</button>
 </div>
  <script>
    const $controls = document.querySelector(".controls");
