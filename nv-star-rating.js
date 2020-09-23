@@ -6,12 +6,14 @@ class NvStarRating extends HTMLElement {
     this._$bottom = null;
     this._disabled = false;
     this._value = 0;
+    this._touched = false;
   }
 
   set value(value){
     if(this._value === value) return;
+    this._touched = true;
     this._value = value;
-    this._render()
+    this._render();
   }
   get value(){
     this._value;
@@ -98,11 +100,14 @@ class NvStarRating extends HTMLElement {
      if(this._value !== event.target.dataset.value){
        this.dispatchEvent(new Event("change"));
        this._value = event.target.dataset.value;
-     }
-       
-     }
+       }    
+     } });
 
-    });
+     const initialValue = this.getAttribute("value");
+     if(this.initialValue !== null){
+       this._value = initialValue;
+       this._render();
+     }
 
   }
 
@@ -113,7 +118,7 @@ class NvStarRating extends HTMLElement {
   }
 
   static get observedAttributes(){
-    return ["disabled"];
+    return ["disabled", "value"];
 
   }
 
@@ -122,7 +127,14 @@ class NvStarRating extends HTMLElement {
        switch(name){
          case "disabled": 
            this._disabled = (newValue !== null);
+           break
+         case "value": 
+           if(this._touched === false){
+             this._value = newValue;
+             this._render();
+           }
            break;
+          
        }
     }
 
