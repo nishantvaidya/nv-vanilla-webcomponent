@@ -81,14 +81,11 @@ class NvStarRating extends HTMLElement {
      </style>
      <div class="container">
        <div class="top">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-       </div>
+        <span>★</span><span>★</span><span>★</span><span>★</span>
+        <span>★</span>
+      </div>
        <div class="bottom">
-         <span data-value="5">★</span>
-         <span data-value="4">★</span>
-         <span data-value="3">★</span>
-         <span data-value="2">★</span>
-         <span data-value="1">★</span>
+         <span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span>
        </div>
      </div>
     `;

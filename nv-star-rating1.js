@@ -81,7 +81,7 @@ class RwStarRating extends HTMLElement {
                 }
             </style>
             <div class="container">
-                <div class="top">
+               <div class="top">
                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
                 <div class="bottom">
